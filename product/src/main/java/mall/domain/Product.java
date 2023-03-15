@@ -36,16 +36,14 @@ public class Product {
 
         */
 
-        /** Example 2:  finding and process
+        /** Example 2:  finding and process */
         
-        repository().findById(deliveryCompleted.get???()).ifPresent(product->{
-            
-            product // do something
+        repository().findById(deliveryCompleted.getProductId()).ifPresent(product->{
+            System.out.println("1: "+product.getStock());
+            System.out.println("2: "+deliveryCompleted.getQty());
+            product.setStock(product.getStock() - deliveryCompleted.getQty());
             repository().save(product);
-
-
          });
-        */
 
     }
 
@@ -58,16 +56,13 @@ public class Product {
 
         */
 
-        /** Example 2:  finding and process
+        /** Example 2:  finding and process */
         
-        repository().findById(deliveryCanceled.get???()).ifPresent(product->{
+        repository().findById(deliveryCanceled.getProductId()).ifPresent(product->{
             
-            product // do something
+            product.setStock(product.getStock() + deliveryCanceled.getQty());
             repository().save(product);
-
-
          });
-        */
 
     }
     //>>> Clean Arch / Port Method
